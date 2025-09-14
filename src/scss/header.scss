@@ -1,0 +1,108 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    color: white;
+    // .header__container
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 20px;
+        @media (min-width: $mobile) {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    }
+
+    // .header__menu
+
+    &__menu {
+    }
+
+    // .header__btn
+
+    &__btn {
+        background-color: transparent;
+        border: 1px solid #e126ff;
+        padding: 7px 15px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: clamp(12px, 2vw, 20px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+
+        &:hover {
+            background-color: #e126ff;
+            cursor: pointer;
+            @media (min-width: $mobile) {
+                background-color: transparent;
+                border: 1px solid #e126ff;
+            }
+        }
+
+        @media (min-width: $mobile) {
+            background-color: #e126ff;
+            // font-size: 14px;
+            padding: 10px 25px;
+            gap: 15px;
+        }
+
+        @media (min-width: $tablet) {
+            // font-size: 20px;
+            padding: 18px 40px;
+        }
+
+        .arrow-right {
+            width: 8px;
+            height: 8px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            @media (min-width: $mobile) {
+                width: 15px;
+                height: 15px;
+            }
+
+            @media (min-width: $tablet) {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+.logo {
+}
+.menu-header {
+    font-size: clamp(16px, 2vw, 20px);
+    display: none;
+    gap: 30px;
+    @media (min-width: $mobile) {
+        gap: 30px;
+        // font-size: 16px;
+    }
+
+    @media (min-width: $tablet) {
+        gap: 30px;
+        display: flex;
+        // font-size: 20px;
+    }
+
+    @media (min-width: $pc) {
+        gap: 90px;
+    }
+
+    // .menu-header__item
+
+    &__item {
+        font-weight: 400;
+    }
+}
