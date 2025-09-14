@@ -12,12 +12,13 @@
 		"build": "gulp build --build",
 		"sprite": "gulp sprite",
 		"fonts": "gulp fonts --rewrite",
-		"deploy": "gulp deployFTP --build",
 		"zip": "gulp deployZIP --build",
 		"devbuild": "gulp build --build --nowebp",
 		"noimgbuild": "gulp build --build --noimgopt",
 		"tmp": "gulp -f gulpfile.tmp.js",
-		"bem": "fls-bemtree-from-html"
+		"bem": "fls-bemtree-from-html",
+		"predeploy": "npm run build",
+  		"deploy": "gh-pages -d dist" 
 	},
 	"devDependencies": {
 		"@babel/cli": "latest",
@@ -38,6 +39,7 @@
 		"eslint-plugin-react-refresh": "latest",
 		"file-include-webpack-plugin-replace": "latest",
 		"file-loader": "^6.2.0",
+		"gh-pages": "^6.3.0",
 		"gulp": "latest",
 		"gulp-autoprefixer": "latest",
 		"gulp-clean-css": "latest",
