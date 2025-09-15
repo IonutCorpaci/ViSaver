@@ -346,3 +346,195 @@
         opacity: 0;
     }
 }
+
+// ========================= CREATE PLAYLIST =========================
+
+.create-playlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    gap: 0;
+    margin-top: clamp(30px, 10vw, 170px);
+    position: relative;
+    z-index: 2;
+    margin-left: 0;
+
+    @media (min-width: $tablet) {
+        margin-left: 40px;
+    }
+
+    @media (min-width: 1600px) {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    // .create-playlist__text
+
+    &__text {
+        text-transform: uppercase;
+        font-size: clamp(35px, 7vw, 100px);
+        font-weight: 300;
+        line-height: 120%;
+        width: fit-content;
+        max-width: 940px;
+        position: relative;
+        margin-top: -25px;
+        opacity: 0;
+        transition: 0.3s ease-in;
+        z-index: 3;
+
+        @media (min-width: $mobile) {
+            line-height: 120%;
+            margin-top: -40px;
+        }
+
+        @media (min-width: $tablet) {
+            line-height: 150%;
+            margin-top: -50px;
+        }
+
+        @media (min-width: $pc) {
+            line-height: 170%;
+        }
+
+        @media (min-width: 1600px) {
+            margin-top: 0;
+            width: 60%;
+        }
+
+        // span {
+        //     display: block;
+        //     text-align: right;
+        // }
+    }
+
+    // .create-playlist__girl
+
+    &__girl {
+        @media (min-width: 1600px) {
+            width: 40%;
+        }
+    }
+
+    // .create-playlist__image
+
+    &__image {
+        width: 500px;
+        height: 480px;
+        display: none;
+
+        @media (min-width: $mobile) {
+            display: block;
+        }
+
+        @media (min-width: $pc) {
+            width: 680px;
+            height: 700px;
+        }
+    }
+
+    &__image-mob {
+        width: 100%;
+        @media (min-width: $mobile) {
+            display: none;
+        }
+    }
+
+    // .create-playlist__circle
+
+    &__circle {
+        position: absolute;
+        top: -100px;
+        right: -60px;
+        width: 165px;
+        height: 165px;
+
+        @media (min-width: $tablet) {
+            width: 280px;
+            height: 280px;
+            top: -130px;
+        }
+
+        @media (min-width: $pc) {
+            width: 342px;
+            height: 342px;
+            right: 20px;
+        }
+    }
+
+    &__rocket {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        @media (min-width: $mobile) {
+            gap: 20px;
+        }
+        img {
+            width: 90px;
+            height: 100%;
+            object-fit: contain;
+
+            @media (min-width: $mobileSmall) {
+                width: 120px;
+            }
+
+            @media (min-width: $mobile) {
+                width: 180px;
+            }
+
+            @media (min-width: $tablet) {
+                width: 200px;
+            }
+
+            @media (min-width: $pc) {
+                width: 240px;
+            }
+        }
+    }
+}
+
+.circle-playlist {
+    &__image {
+        position: relative;
+    }
+
+    &__logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 35px;
+        height: 35px;
+
+        @media (min-width: $mobile) {
+            width: 50px;
+            height: 50px;
+        }
+
+        @media (min-width: $tablet) {
+            width: 65px;
+            height: 65px;
+        }
+
+        @media (min-width: $pc) {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}
+
+.girl-create {
+    transform: rotate(15deg);
+    transition: 0.2s;
+}
+
+.rocket-create {
+    transform: translateX(-150%);
+    transition: 0.4s;
+}
+
+.test {
+    opacity: 0;
+}

@@ -19,10 +19,13 @@ if (parallax.length) {
 // TICKER
 
 const ticker = document.querySelector('.ticker');
+const createPlaylistCircle = document.querySelector('.circle-playlist__image');
+
 if (ticker) {
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
         ticker.style.transform = `translateX(${-scrolled * 0.8}px)`;
+        createPlaylistCircle.style.transform = `rotate(${-scrolled * 0.5}deg)`;
     });
 }
 
@@ -69,5 +72,37 @@ if (actionsBlock) {
     }
   });
 }
+
+
+// CREATE-PLAYLIST BLOCK
+
+const createPlaylistBlock = document.querySelector('.create-playlist'),
+  createPlaylistRocket = document.querySelector('.rocket-create'),
+  createPlaylistText = document.querySelector('.create-playlist__text'),
+  createPlaylistGirl = document.querySelectorAll('.girl-create');
+  
+
+if (createPlaylistBlock) {
+
+  window.addEventListener('scroll', () => {
+    const rect = createPlaylistBlock.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const scrolled = window.scrollY;
+
+    // rect.bottom — расстояние от верха окна до низа элемента
+    if (rect.bottom <= windowHeight) {
+      // элемент полностью виден (дошли до низа)
+      createPlaylistGirl.forEach(el => el.style.transform = 'rotate(0deg)');
+      createPlaylistRocket.style.transform = 'translateX(0)';
+      createPlaylistText.style.opacity = '1';
+    } else {
+      createPlaylistGirl.forEach(el => el.style.transform = 'rotate(15deg)');
+      createPlaylistRocket.style.transform = 'translateX(-150%)';
+      createPlaylistText.style.opacity = '0';
+    }
+  });
+}
+
+
 
 
