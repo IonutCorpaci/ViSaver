@@ -247,9 +247,11 @@
         }));
     }));
     const ticker = document.querySelector(".ticker");
+    const createPlaylistCircle = document.querySelector(".circle-playlist__image");
     if (ticker) window.addEventListener("scroll", (() => {
         const scrolled = window.scrollY;
         ticker.style.transform = `translateX(${-scrolled * .8}px)`;
+        createPlaylistCircle.style.transform = `rotate(${-scrolled * .5}deg)`;
     }));
     const actionsBlock = document.querySelector(".actions");
     const actionsItem = document.querySelectorAll(".actions__item");
@@ -276,6 +278,21 @@
                 el.style.opacity = delayedOpacity(progress, .6);
             }));
         } else [ ...actionsItem, ...actionsTitle, ...actionsDescription ].forEach((el => el.style.opacity = 0));
+    }));
+    const createPlaylistBlock = document.querySelector(".create-playlist"), createPlaylistRocket = document.querySelector(".rocket-create"), createPlaylistText = document.querySelector(".create-playlist__text"), createPlaylistGirl = document.querySelectorAll(".girl-create");
+    if (createPlaylistBlock) window.addEventListener("scroll", (() => {
+        const rect = createPlaylistBlock.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        window.scrollY;
+        if (rect.bottom <= windowHeight) {
+            createPlaylistGirl.forEach((el => el.style.transform = "rotate(0deg)"));
+            createPlaylistRocket.style.transform = "translateX(0)";
+            createPlaylistText.style.opacity = "1";
+        } else {
+            createPlaylistGirl.forEach((el => el.style.transform = "rotate(15deg)"));
+            createPlaylistRocket.style.transform = "translateX(-150%)";
+            createPlaylistText.style.opacity = "0";
+        }
     }));
     window["FLS"] = false;
     addLoadedClass();
