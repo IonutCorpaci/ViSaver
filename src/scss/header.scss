@@ -41,6 +41,7 @@
         &:hover {
             background-color: #e126ff;
             cursor: pointer;
+            transition: background 0.4s;
             @media (min-width: $mobile) {
                 background-color: transparent;
                 border: 1px solid #e126ff;
