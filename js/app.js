@@ -330,6 +330,30 @@
             if (i < transforms.length) item.style.transform = transforms[i];
         }));
     }));
+    const shareBlockMain = document.querySelector(".main-share-knowledge");
+    const shareBlockSecond = document.querySelector(".second-share-knowledge");
+    const shareSwitchBtn = document.querySelector(".share-knowledge__btn");
+    let isActiveBtn = false;
+    shareSwitchBtn.addEventListener("click", (() => {
+        isActiveBtn = !isActiveBtn;
+        if (isActiveBtn) shareSwitchBtn.innerHTML = "Назад"; else shareSwitchBtn.innerHTML = 'Узнать больше <div class="arrow-right"><img src="../img/arrow.svg" alt=""></div>';
+        shareSwitchBtn.classList.toggle("active-share-btn");
+        shareBlockMain.classList.toggle("active-share");
+        shareBlockSecond.classList.toggle("active-share");
+    }));
+    const firstStickyBlock = document.querySelector(".sticky-effect-block-1");
+    const secondStickyBlock = document.querySelector(".sticky-effect-block-2");
+    window.addEventListener("scroll", (() => {
+        const rectFirst = firstStickyBlock.getBoundingClientRect();
+        if (rectFirst.bottom <= window.innerHeight) secondStickyBlock.style.display = "block"; else secondStickyBlock.style.display = "none";
+        if (rectFirst.bottom <= 0) {
+            firstStickyBlock.classList.add("block-sticky");
+            secondStickyBlock.classList.add("block-sticky");
+        } else {
+            firstStickyBlock.classList.remove("block-sticky");
+            secondStickyBlock.classList.remove("block-sticky");
+        }
+    }));
     window["FLS"] = false;
     addLoadedClass();
 })();
