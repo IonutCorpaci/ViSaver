@@ -354,6 +354,19 @@
             secondStickyBlock.classList.remove("block-sticky");
         }
     }));
+    const howWorksBlock = document.querySelector(".how-works");
+    const howWorksShow = document.querySelector(".how-works__container");
+    if (howWorksBlock) window.addEventListener("scroll", (() => {
+        const rect = howWorksBlock.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const start = windowHeight * 1.7;
+        const end = windowHeight * .2;
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.min(Math.max(progress, 0), 1);
+        const translateX = -2e3 * (1 - progress);
+        howWorksShow.style.transform = `translateX(${translateX}px)`;
+        howWorksShow.style.opacity = progress;
+    }));
     window["FLS"] = false;
     addLoadedClass();
 })();
