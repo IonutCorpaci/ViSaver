@@ -1044,7 +1044,7 @@ body {
 .sticky-effect-block-1 {
   position: relative;
   margin-bottom: 100vh;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   background-color: #000
 }
@@ -1056,11 +1056,105 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 0;
+  z-index: 1;
   width: 100%
 }
 .sticky-effect-block-2.block-sticky {
   position: relative
+}
+.how-works {
+  padding-top: clamp(30px,10vw,120px);
+  padding-bottom: clamp(0,10vw,180px);
+  position: relative
+}
+.how-works__container {
+  position: relative;
+  z-index: 1;
+  -webkit-transform: translateX(700px);
+  transform: translateX(700px)
+}
+.how-works__title {
+  font-size: clamp(24px,5vw,35px);
+  font-weight: 700;
+  text-transform: uppercase
+}
+.how-works__items {
+  margin-top: clamp(10px,6vw,80px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between
+}
+.item-how {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+.item-how__title {
+  font-size: clamp(16px,4vw,25px);
+  height: auto;
+  margin-bottom: 20px
+}
+.item-how__title span {
+  font-weight: 300;
+  color: #d3d5dc;
+  font-size: clamp(13px,4vw,20px)
+}
+.item-how__social {
+  display: grid;
+  grid-template-columns: repeat(4,38px);
+  gap: 50px
+}
+.item-how__folder {
+  display: flex;
+  flex-direction: column;
+  gap: 25px
+}
+.item-how__folder-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 314px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #050023
+}
+.item-how__playlist {
+  display: flex;
+  gap: 20px
+}
+.item-how__playlist-item:nth-of-type(3) {
+  display: none
+}
+.item-how-playlist__subtitle {
+  font-size: clamp(11px,4vw,16px);
+  font-weight: 500
+}
+.item-how-playlist__name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: clamp(11px,4vw,16px)
+}
+.item-how-playlist__views {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: clamp(9px,4vw,13px)
+}
+.parallax-spring {
+  position: absolute;
+  top: 70%;
+  right: -4%;
+  z-index: 0;
+  width: 120px
+}
+.parallax-compas {
+  position: absolute;
+  top: 160%;
+  left: -5%;
+  z-index: 0;
+  width: 160px
 }
 @media (min-width:29.99875em) {
   .create-playlist__rocket img {
@@ -1194,6 +1288,45 @@ body {
     height: 240px;
     bottom: -60%
   }
+  .how-works__container {
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px)
+  }
+  .how-works__title {
+    font-weight: 500
+  }
+  .item-how {
+    align-items: center
+  }
+  .item-how__social {
+    grid-template-columns: repeat(5,48px)
+  }
+  .item-how__folder-item {
+    width: 360px
+  }
+  .item-how__playlist {
+    gap: 0
+  }
+  .item-how__playlist-item:nth-of-type(1) {
+    -webkit-transform: translate(70px,-15px);
+    transform: translate(70px,-15px)
+  }
+  .item-how__playlist-item:nth-of-type(2) {
+    -webkit-transform: translate(0,15px);
+    transform: translate(0,15px)
+  }
+  .item-how__playlist-item:nth-of-type(3) {
+    display: block;
+    -webkit-transform: translate(-70px,45px);
+    transform: translate(-70px,45px)
+  }
+  .parallax-spring {
+    width: 160px;
+    top: 100%
+  }
+  .parallax-compas {
+    width: 200px
+  }
 }
 @media (min-width:61.99875em) {
   .header__btn {
@@ -1283,6 +1416,9 @@ body {
     height: 300px;
     bottom: -90%
   }
+  .item-how__title {
+    margin-bottom: 30px
+  }
 }
 @media (min-width:91.125em) {
   .menu-header {
@@ -1347,6 +1483,36 @@ body {
     bottom: -100%;
     width: 499px;
     height: 499px
+  }
+  .how-works__items {
+    flex-direction: row
+  }
+  .item-how__title {
+    height: 80px;
+    margin-bottom: 50px
+  }
+  .item-how__social {
+    grid-template-columns: repeat(3,48px)
+  }
+  .item-how__playlist-item:nth-of-type(1) {
+    -webkit-transform: translate(70px,-30px);
+    transform: translate(70px,-30px)
+  }
+  .item-how__playlist-item:nth-of-type(2) {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+  .item-how__playlist-item:nth-of-type(3) {
+    -webkit-transform: translate(-70px,30px);
+    transform: translate(-70px,30px)
+  }
+  .parallax-spring {
+    top: 120%;
+    width: 190px
+  }
+  .parallax-compas {
+    top: 200%;
+    width: 266px
   }
 }
 @media (min-width:1600px) {
