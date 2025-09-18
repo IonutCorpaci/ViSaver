@@ -336,7 +336,7 @@
     let isActiveBtn = false;
     shareSwitchBtn.addEventListener("click", (() => {
         isActiveBtn = !isActiveBtn;
-        if (isActiveBtn) shareSwitchBtn.innerHTML = "Назад"; else shareSwitchBtn.innerHTML = 'Узнать больше <div class="arrow-right"><img src="../img/arrow.svg" alt=""></div>';
+        if (isActiveBtn) shareSwitchBtn.innerHTML = "Назад"; else shareSwitchBtn.innerHTML = 'Узнать больше <div class="arrow-right"><img src="img/arrow.svg" alt=""></div>';
         shareSwitchBtn.classList.toggle("active-share-btn");
         shareBlockMain.classList.toggle("active-share");
         shareBlockSecond.classList.toggle("active-share");

@@ -167,7 +167,7 @@ shareSwitchBtn.addEventListener('click', () => {
   if (isActiveBtn) {
     shareSwitchBtn.innerHTML = 'Назад';
   } else {
-    shareSwitchBtn.innerHTML = 'Узнать больше <div class="arrow-right"><img src="../img/arrow.svg" alt=""></div>';
+    shareSwitchBtn.innerHTML = 'Узнать больше <div class="arrow-right"><img src="img/arrow.svg" alt=""></div>';
   }
   
   shareSwitchBtn.classList.toggle('active-share-btn');

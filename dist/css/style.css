@@ -576,7 +576,8 @@ body {
   text-align: center;
   border-radius: 10px;
   border: 1px solid #e126ff;
-  z-index: 3
+  z-index: 3;
+  position: relative
 }
 .video-block__btn:hover {
   background-color: rgba(0,0,0,0);
@@ -779,10 +780,11 @@ body {
   position: absolute;
   left: 0;
   top: -70%;
-  display: none
+  display: none;
+  z-index: 0
 }
 .garmony {
-  margin-top: clamp(50px,10vw,150px);
+  padding-top: clamp(50px,10vw,150px);
   padding-bottom: clamp(30px,10vw,180px);
   position: relative
 }

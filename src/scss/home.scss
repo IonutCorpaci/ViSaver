@@ -175,6 +175,7 @@
         border-radius: 10px;
         border: 1px solid #e126ff;
         z-index: 3;
+        position: relative;
 
         &:hover {
             background-color: transparent;
@@ -573,6 +574,7 @@
     left: 0;
     top: -70%;
     display: none;
+    z-index: 0;
 
     @media (min-width: $mobile) {
         display: block;
@@ -586,7 +588,7 @@
 // ========================= GARMONY =========================
 
 .garmony {
-    margin-top: clamp(50px, 10vw, 150px);
+    padding-top: clamp(50px, 10vw, 150px);
     padding-bottom: clamp(30px, 10vw, 180px);
     position: relative;
 
