@@ -1,4 +1,7 @@
 // ========================= MAIN =========================
+:root {
+    --title-width-first: 0px;
+}
 
 .main {
     position: relative;
@@ -1094,7 +1097,7 @@
 
     &__container {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         transform: translateX(700px);
         @media (min-width: $mobile) {
             transform: translateX(2000px);
@@ -1120,8 +1123,34 @@
         flex-direction: column;
         gap: 30px;
         justify-content: space-between;
+        position: relative;
+        padding-left: 20px;
 
-        @media (min-width: $tablet) {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 0;
+            background: url("../img/gradients/how-mob-line.png") center/cover no-repeat;
+            width: 4px;
+            height: var(--title-width-first);
+            display: block;
+        }
+
+        @media (min-width: $mobileSmall) {
+            padding-left: 30px;
+
+            &::before {
+                top: 20px;
+            }
+        }
+
+        @media (min-width: $mobile) {
+            padding-left: 0px;
+
+            &::before {
+                display: none;
+            }
         }
 
         @media (min-width: $pc) {
@@ -1139,15 +1168,123 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &:nth-of-type(1) &__title::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: -23px;
+        background: #d3d5dc;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: block;
+    }
+
+    &:nth-of-type(2) &__title::before {
+        content: "";
+        position: absolute;
+        top: 12px;
+        left: -20px;
+        background: #d3d5dc;
+        width: 15px;
+        height: 3px;
+        display: block;
+    }
+
+    &:nth-of-type(3) &__title::before {
+        content: "";
+        position: absolute;
+        top: 11px;
+        left: -20px;
+        background: #d3d5dc;
+        width: 15px;
+        height: 3px;
+        display: block;
+    }
+
+    @media (min-width: $mobileSmall) {
+        &:nth-of-type(1) &__title::before {
+            top: 13px;
+            left: -33px;
+        }
+
+        &:nth-of-type(2) &__title::before {
+            width: 20px;
+            top: 17px;
+            left: -30px;
+        }
+
+        &:nth-of-type(3) &__title::before {
+            width: 20px;
+            top: 17px;
+            left: -30px;
+        }
+    }
+
     @media (min-width: $mobile) {
         align-items: center;
+
+        &:nth-of-type(1) &__title::before {
+            display: none;
+        }
+
+        &:nth-of-type(2) &__title::before {
+            display: none;
+        }
+
+        &:nth-of-type(3) &__title::before {
+            display: none;
+        }
     }
+
+    @media (max-width: $mobile) {
+    }
+
+    @media (min-width: $pc) {
+        &:nth-of-type(1) &__title::after {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: -97%;
+            background: url("../img/gradients/how-pc-line-1.png") center/cover no-repeat;
+            width: 190px;
+            height: 3px;
+            display: block;
+        }
+
+        &:nth-of-type(2) &__title::after {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: -147%;
+            background: url("../img/gradients/how-pc-line-2.png") center/cover no-repeat;
+            width: 335px;
+            height: 5px;
+            display: block;
+        }
+    }
+
+    &:nth-of-type(2) &__title {
+        @media (min-width: $mobile) {
+            text-align: center;
+        }
+    }
+
     // .item-how__title
 
     &__title {
         font-size: clamp(16px, 4vw, 25px);
         height: auto;
         margin-bottom: 20px;
+        position: relative;
+
+        span {
+            font-weight: 300;
+            color: #d3d5dc;
+            font-size: clamp(13px, 4vw, 20px);
+        }
+
         @media (min-width: $tablet) {
             margin-bottom: 30px;
         }
@@ -1156,11 +1293,6 @@
             height: 80px;
             margin-bottom: 50px;
         }
-        span {
-            font-weight: 300;
-            color: #d3d5dc;
-            font-size: clamp(13px, 4vw, 20px);
-        }
     }
 
     // .item-how__social
@@ -1168,10 +1300,11 @@
     &__social {
         display: grid;
         grid-template-columns: repeat(4, 38px);
-        gap: 50px;
+        gap: 40px;
 
         @media (min-width: $mobile) {
             grid-template-columns: repeat(5, 48px);
+            gap: 50px;
         }
 
         @media (min-width: $pc) {
@@ -1197,6 +1330,17 @@
         padding: 8px 16px;
         border-radius: 20px;
         background-color: #050023;
+
+        &:nth-of-type(4) {
+            // градиент прозрачности сверху вниз
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: cover;
+
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
+            mask-repeat: no-repeat;
+            mask-size: cover;
+        }
 
         @media (min-width: $mobile) {
             width: 360px;
@@ -1255,6 +1399,10 @@
     // .item-how-playlist__image
 
     &__image {
+        @media (max-width: $mobileSmall) {
+            width: 136px;
+            height: 136px;
+        }
     }
 
     // .item-how-playlist__subtitle
@@ -1287,7 +1435,7 @@
     position: absolute;
     top: 70%;
     right: -4%;
-    z-index: 0;
+    z-index: 1;
     width: 120px;
 
     @media (min-width: $mobile) {
@@ -1305,7 +1453,7 @@
     position: absolute;
     top: 160%;
     left: -5%;
-    z-index: 0;
+    z-index: 1;
     width: 160px;
 
     @media (min-width: $mobile) {
@@ -1315,5 +1463,142 @@
     @media (min-width: $pc) {
         top: 200%;
         width: 266px;
+    }
+}
+
+.gradient-6 {
+    position: absolute;
+    top: -80%;
+    left: 0;
+    z-index: 0;
+    display: none;
+    @media (min-width: $mobile) {
+        display: block;
+    }
+}
+
+.gradient-7 {
+    position: absolute;
+    top: -115%;
+    right: 0;
+    z-index: 0;
+
+    display: none;
+    @media (min-width: $mobile) {
+        display: block;
+    }
+}
+
+.visaver-block {
+    position: relative;
+    z-index: 2;
+    height: 30vh;
+    @media (min-width: $mobile) {
+        height: 50vh;
+    }
+
+    @media (min-width: $pc) {
+        padding-bottom: 120px;
+        height: 70vh;
+    }
+
+    // .visaver-block__container
+
+    &__container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+
+    // .visaver-block__text
+
+    &__text {
+        display: block;
+        margin-top: -20px;
+        font-size: 16px;
+        @media (min-width: $mobile) {
+            display: none;
+        }
+    }
+
+    &__btn {
+        width: 258px;
+        background-color: #e126ff;
+        border: 1px solid #e126ff;
+        border-radius: 10px;
+        padding: 20px 30px;
+        margin-top: 40px;
+        display: block;
+        transition: 0.4s;
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        @media (min-width: $mobile) {
+            display: none;
+        }
+    }
+
+    // .visaver-block__title
+
+    &__title {
+        text-align: center;
+        font-size: 80px;
+        font-weight: 500;
+        position: relative;
+        z-index: 2;
+
+        @media (min-width: $mobileSmall) {
+            font-size: 90px;
+        }
+
+        @media (min-width: $mobile) {
+            font-size: 120px;
+        }
+
+        @media (min-width: $tablet) {
+            font-size: 170px;
+        }
+        @media (min-width: $pc) {
+            font-size: 200px;
+        }
+    }
+}
+
+.gradient-8 {
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    z-index: 0;
+
+    display: none;
+    @media (min-width: $mobile) {
+        display: block;
+    }
+}
+
+.parallax-alien {
+    position: absolute;
+    bottom: -170%;
+    right: 0;
+    z-index: 1;
+
+    width: 220px;
+
+    @media (min-width: $mobile) {
+        width: 300px;
+        bottom: -170%;
+    }
+
+    @media (min-width: $tablet) {
+        width: 400px;
+    }
+
+    @media (min-width: $pc) {
+        bottom: -150%;
     }
 }
