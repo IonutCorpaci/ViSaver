@@ -1097,7 +1097,7 @@
 
     &__container {
         position: relative;
-        z-index: 2;
+        z-index: 3;
         transform: translateX(700px);
         @media (min-width: $mobile) {
             transform: translateX(2000px);
@@ -1551,12 +1551,14 @@
         font-weight: 500;
         position: relative;
         z-index: 2;
+        margin-top: 40px;
 
         @media (min-width: $mobileSmall) {
             font-size: 90px;
         }
 
         @media (min-width: $mobile) {
+            margin-top: 0;
             font-size: 120px;
         }
 

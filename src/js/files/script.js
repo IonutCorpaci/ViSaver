@@ -225,18 +225,34 @@ if (howWorksBlock) {
   })
 }
 
-window.addEventListener('load', () => {
-  const howWorksTitles = document.querySelectorAll('.item-how__title');
+const howWorksTitles = document.querySelectorAll('.item-how__title');
 
-  if (howWorksTitles) {
-    let firstRect = howWorksTitles[0].getBoundingClientRect();  
+function updateLine() {
+  if (howWorksTitles && howWorksTitles.length >= 3) {
+    let firstRect = howWorksTitles[0].getBoundingClientRect();
     let secondRect = howWorksTitles[2].getBoundingClientRect();
-
-    console.log(secondRect.bottom - firstRect.bottom)
-
-    document.documentElement.style.setProperty('--title-width-first', `${secondRect.bottom - firstRect.bottom}px`)
+    document.documentElement.style.setProperty(
+      '--title-width-first',
+      `${secondRect.bottom - firstRect.bottom}px`
+    );
   }
-})
+}
+
+// 1. сразу при загрузке страницы
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', updateLine);
+} else {
+  updateLine();
+}
+
+// 2. при скролле — если вдруг блок появился после динамической подгрузки
+window.addEventListener('scroll', updateLine);
+
+// 3. при изменении размера окна
+window.addEventListener('resize', updateLine);
+ 
+
+
 
 
 
