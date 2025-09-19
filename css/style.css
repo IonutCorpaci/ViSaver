@@ -485,7 +485,6 @@ body {
   font-weight: 400
 }
 .footer {
-  margin-top: -20px;
   display: block
 }
 .footer__text {
@@ -1082,7 +1081,7 @@ body {
 }
 .how-works__container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   -webkit-transform: translateX(700px);
   transform: translateX(700px)
 }
@@ -1271,7 +1270,8 @@ body {
   font-size: 80px;
   font-weight: 500;
   position: relative;
-  z-index: 2
+  z-index: 2;
+  margin-top: 40px
 }
 .gradient-8 {
   position: absolute;
@@ -1519,6 +1519,7 @@ body {
     display: none
   }
   .visaver-block__title {
+    margin-top: 0;
     font-size: 120px
   }
   .gradient-8 {
